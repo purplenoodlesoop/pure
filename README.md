@@ -72,7 +72,7 @@ final counter = newCounter().memoized;
 counter(0); // Returns 0, counter becomes 1
 counter(10); // Returns 11, counter becomes 2
 counter(0); // Returns 0, counter stays 2
-counter(11); // Returns 13, count
+counter(11); // Returns 13, count becomes 3
 ```
 
 ### Partial Application

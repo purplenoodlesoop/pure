@@ -1,4 +1,4 @@
-import 'package:example/examples.dart';
+import 'package:example/example.dart';
 import 'package:pure/pure.dart';
 
 void main(List<String> arguments) {
