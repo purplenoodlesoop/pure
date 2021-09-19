@@ -1,0 +1,3 @@
+# example
+
+pure package example
