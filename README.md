@@ -67,12 +67,12 @@ int Function(int base) newCounter() {
   return (base) => base + counter++;
 }
 
-final counter = newCounter().memoized;
+final counter = newCounter().memoize();
 
 counter(0); // Returns 0, counter becomes 1
 counter(10); // Returns 11, counter becomes 2
 counter(0); // Returns 0, counter stays 2
-counter(11); // Returns 13, count becomes 3
+counter(11); // Returns 13, counter becomes 3
 ```
 
 ### Partial Application

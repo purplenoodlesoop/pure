@@ -1,22 +1,26 @@
 library pure;
 
-// -- Composition --
+// -- Composition -- //
 
 export 'src/composition/dot.dart';
 export 'src/composition/pipe.dart';
 
-// -- Memoization --
+// -- Memoization -- //
 
 export 'src/memoization/extensions.dart';
 
-// -- Partial Application --
+// -- Partial Application -- //
 
 export 'src/partial_application/extensions.dart';
 
-// -- Recursion Trampoline --
+// -- Recursion Trampoline -- //
 
 export 'src/recursion_trampoline/base.dart';
 export 'src/recursion_trampoline/extensions.dart';
+
+// -- Functions -- //
+
+export 'src/functions/functions.dart';
 
 // Convenience mixin for auto-imports
 mixin ImportPure {}
