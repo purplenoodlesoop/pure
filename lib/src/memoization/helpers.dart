@@ -1,8 +1,7 @@
 int _combineHashes(int first, int second) => 3 * first + second;
 
 extension on List<Object?> {
-  int get combinedHash =>
-      fold<int>(0, (acc, e) => _combineHashes(acc, e.hashCode));
+  int get combinedHash => map((e) => e.hashCode).fold(0, _combineHashes);
 }
 
 extension TryGetMemoized on Function {

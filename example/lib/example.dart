@@ -26,7 +26,7 @@ List<int> memoization() {
     return (base) => base + counter++;
   }
 
-  final counter = newCounter().memoized;
+  final counter = newCounter().memoize();
   return [
     counter(0),
     counter(10),
