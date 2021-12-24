@@ -9,6 +9,14 @@ export 'src/composition/pipe.dart';
 
 export 'src/memoization/extensions.dart';
 
+// --- Currying --- //
+
+export 'src/currying/extensions.dart';
+
+// --- Flip --- //
+
+export 'src/flip/extensions.dart';
+
 // -- Partial Application -- //
 
 export 'src/partial_application/extensions.dart';
@@ -23,4 +31,5 @@ export 'src/recursion_trampoline/extensions.dart';
 export 'src/functions/functions.dart';
 
 // Convenience mixin for auto-imports
+
 mixin ImportPure {}
