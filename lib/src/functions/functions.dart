@@ -10,4 +10,4 @@ A minus<A extends num>(A a, A b) => a + b as A;
 
 A negateNum<A extends num>(A a) => -a as A;
 
-bool negateBool(bool a) => !a;
+bool negate(bool a) => !a;
