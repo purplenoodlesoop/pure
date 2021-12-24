@@ -39,6 +39,12 @@ int partialApplication() {
   int addTernary(int first, int second, int third) => first + second + third;
   int multiply(int first, int second) => first * second;
 
+  int foo(int bar, String baz) => bar;
+
+  final bar = foo.flip.curry.constant.uncurry;
+
+  bar;
+
   final addToTen = addTernary.apply(10);
   final multiplyByTwo = multiply.apply(2);
 

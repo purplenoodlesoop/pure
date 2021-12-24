@@ -11,7 +11,11 @@ export 'src/memoization/extensions.dart';
 
 // --- Currying --- //
 
-export 'src/currying/extensions.dart';
+export 'src/curry/extensions.dart';
+
+// --- Constant --- //
+
+export 'src/constant/extensions.dart';
 
 // --- Flip --- //
 
@@ -29,6 +33,10 @@ export 'src/recursion_trampoline/extensions.dart';
 // -- Functions -- //
 
 export 'src/functions/functions.dart';
+
+// -- Uncurrying -- //
+
+export 'src/uncurry/extensions.dart';
 
 // Convenience mixin for auto-imports
 
