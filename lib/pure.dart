@@ -22,13 +22,5 @@ export 'src/recursion_trampoline/extensions.dart';
 
 export 'src/functions/functions.dart';
 
-// -- Lifting -- //
-
-export 'src/lifting/extensions.dart';
-
-// -- Reader -- //
-
-export 'src/reader/extensions.dart';
-
 // Convenience mixin for auto-imports
 mixin ImportPure {}

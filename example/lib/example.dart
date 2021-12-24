@@ -44,25 +44,3 @@ int partialApplication() {
 
   return addToTen(multiplyByTwo(5), multiplyByTwo(15));
 }
-
-class Env {
-  final String name;
-  final int version;
-
-  Env(this.name, this.version);
-}
-
-mixin Env$ {
-  static String name(Env env) => env.name;
-}
-
-Reader<String, String> prefixName(String prefix) =>
-    (name) => prefix + ': ' + name;
-
-void printName(String name) => print(name);
-
-void foo() {
-  final env = Env('Foo', 3);
-
-  prefixName('Name').map(printName).lift(Env$.name).run(env);
-}
