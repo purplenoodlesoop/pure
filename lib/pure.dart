@@ -27,7 +27,7 @@ export 'src/partial_application/extensions.dart';
 
 // -- Recursion Trampoline -- //
 
-export 'src/recursion_trampoline/base.dart';
+export 'src/recursion_trampoline/tram.dart';
 export 'src/recursion_trampoline/extensions.dart';
 
 // -- Functions -- //

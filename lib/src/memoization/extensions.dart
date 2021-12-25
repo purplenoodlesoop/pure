@@ -1,14 +1,14 @@
 import 'package:pure/src/common/types.dart';
 import 'package:pure/src/memoization/helpers.dart';
 
-extension Memoized0<T> on F0<T> {
+extension Memoize0X<T> on F0<T> {
   F0<T> memoize() {
     T? result;
     return () => result ??= this();
   }
 }
 
-extension Memoized1<A, T> on F1<A, T> {
+extension Memoize1X<A, T> on F1<A, T> {
   F1<A, T> memoize() {
     final results = <int, T>{};
 
@@ -16,7 +16,7 @@ extension Memoized1<A, T> on F1<A, T> {
   }
 }
 
-extension Memoized2<A, B, T> on F2<A, B, T> {
+extension Memoize2X<A, B, T> on F2<A, B, T> {
   F2<A, B, T> memoize() {
     final results = <int, T>{};
 
@@ -24,7 +24,7 @@ extension Memoized2<A, B, T> on F2<A, B, T> {
   }
 }
 
-extension Memoized3<A, B, C, T> on F3<A, B, C, T> {
+extension Memoize3X<A, B, C, T> on F3<A, B, C, T> {
   F3<A, B, C, T> memoize() {
     final results = <int, T>{};
 
@@ -32,7 +32,7 @@ extension Memoized3<A, B, C, T> on F3<A, B, C, T> {
   }
 }
 
-extension Memoized4<A, B, C, D, T> on F4<A, B, C, D, T> {
+extension Memoize4X<A, B, C, D, T> on F4<A, B, C, D, T> {
   F4<A, B, C, D, T> memoize() {
     final results = <int, T>{};
 
@@ -40,7 +40,7 @@ extension Memoized4<A, B, C, D, T> on F4<A, B, C, D, T> {
   }
 }
 
-extension Memoized5<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
+extension Memoize5X<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
   F5<A, B, C, D, E, T> memoize() {
     final results = <int, T>{};
 
@@ -49,7 +49,7 @@ extension Memoized5<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
   }
 }
 
-extension Memoized6<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
+extension Memoize6X<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
   F6<A, B, C, D, E, F, T> memoize() {
     final results = <int, T>{};
 
@@ -58,7 +58,7 @@ extension Memoized6<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
   }
 }
 
-extension Memoized7<A, B, C, D, E, F, G, T> on F7<A, B, C, D, E, F, G, T> {
+extension Memoize7X<A, B, C, D, E, F, G, T> on F7<A, B, C, D, E, F, G, T> {
   F7<A, B, C, D, E, F, G, T> memoize() {
     final results = <int, T>{};
 
@@ -67,7 +67,7 @@ extension Memoized7<A, B, C, D, E, F, G, T> on F7<A, B, C, D, E, F, G, T> {
   }
 }
 
-extension Memoized8<A, B, C, D, E, F, G, H, T>
+extension Memoize8X<A, B, C, D, E, F, G, H, T>
     on F8<A, B, C, D, E, F, G, H, T> {
   F8<A, B, C, D, E, F, G, H, T> memoize() {
     final results = <int, T>{};
@@ -77,7 +77,7 @@ extension Memoized8<A, B, C, D, E, F, G, H, T>
   }
 }
 
-extension Memoized9<A, B, C, D, E, F, G, H, I, T>
+extension Memoize9X<A, B, C, D, E, F, G, H, I, T>
     on F9<A, B, C, D, E, F, G, H, I, T> {
   F9<A, B, C, D, E, F, G, H, I, T> memoize() {
     final results = <int, T>{};
