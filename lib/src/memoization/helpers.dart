@@ -8,6 +8,6 @@ extension TryGetMemoized on Function {
   T tryGetMemoized<T>(Map<int, T> results, List<Object?> arguments) =>
       results.putIfAbsent(
         arguments.combinedHash,
-        () => Function.apply(this, arguments),
+        () => Function.apply(this, arguments) as T,
       );
 }

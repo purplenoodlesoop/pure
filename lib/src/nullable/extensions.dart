@@ -11,7 +11,7 @@ extension Nullable2<A, B, T> on F2<A, B, T> {
 }
 
 extension Nullable3<A, B, C, T> on F3<A, B, C, T> {
-  T? uncurry(A? a, B? b, C? c) {
+  T? nullable(A? a, B? b, C? c) {
     if (a != null && b != null && c != null) {
       return this(a, b, c);
     }

@@ -38,6 +38,10 @@ export 'src/functions/functions.dart';
 
 export 'src/uncurry/extensions.dart';
 
+// -- Nullable -- //
+
+export 'src/nullable/extensions.dart';
+
 // Convenience mixin for auto-imports
 
 mixin ImportPure {}

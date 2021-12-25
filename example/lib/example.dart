@@ -41,7 +41,7 @@ int partialApplication() {
 
   int foo(int bar, String baz) => bar;
 
-  final bar = foo.flip.curry.constant.uncurry;
+  final bar = foo.flip.curry.constant.uncurry.nullable.curry.constant.uncurry;
 
   bar;
 
