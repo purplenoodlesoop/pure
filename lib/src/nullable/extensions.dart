@@ -2,6 +2,14 @@ library nullable;
 
 import 'package:pure/src/common/types.dart';
 
+extension Nullable1X<A, T> on F1<A, T> {
+  T? nullable(A? a) {
+    if (a != null) {
+      return this(a);
+    }
+  }
+}
+
 extension Nullable2X<A, B, T> on F2<A, B, T> {
   T? nullable(A? a, B? b) {
     if (a != null && b != null) {

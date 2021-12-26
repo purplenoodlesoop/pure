@@ -13,10 +13,18 @@ String composition() {
       intToStringPipe(3);
 }
 
+int constant() {
+  int runWithCurrentDate(int Function(DateTime now) callback) =>
+      callback(DateTime.now());
+
+  return runWithCurrentDate(10.constant);
+}
+
 int trampolineRecursion() {
   Tram<int> tramSum(int number, int sum) => number == 0
       ? Tram.done(sum)
       : Tram.call(() => tramSum(number - 1, sum + number));
+
   return tramSum.bounce(9999999, 0);
 }
 
@@ -27,6 +35,7 @@ List<int> memoization() {
   }
 
   final counter = newCounter().memoize();
+
   return [
     counter(0),
     counter(10),
@@ -36,17 +45,24 @@ List<int> memoization() {
 }
 
 int partialApplication() {
-  int addTernary(int first, int second, int third) => first + second + third;
+  int addQuaternary(int first, int second, int third, int fourth) =>
+      first + second + third + fourth;
   int multiply(int first, int second) => first * second;
 
-  int foo(int bar, String baz) => bar;
-
-  final bar = foo.flip.curry.constant.uncurry.nullable.curry.constant.uncurry;
-
-  bar;
-
-  final addToTen = addTernary.apply(10);
+  final addToTen = addQuaternary.curry(8)(2).uncurry;
   final multiplyByTwo = multiply.apply(2);
 
   return addToTen(multiplyByTwo(5), multiplyByTwo(15));
+}
+
+Future<int?> nullable() {
+  int add(int first, int second) => first + second;
+
+  return Future<int?>.value(10).then(add.apply(90).nullable);
+}
+
+String flip() {
+  String concatenate(String first, String second) => first + ' ' + second;
+
+  return concatenate.flip('First', 'Second');
 }
