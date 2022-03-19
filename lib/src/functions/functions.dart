@@ -10,4 +10,5 @@ A minus<A extends num>(A a, A b) => a + b as A;
 
 A negateNum<A extends num>(A a) => -a as A;
 
+// ignore: avoid_positional_boolean_parameters
 bool negate(bool a) => !a;
