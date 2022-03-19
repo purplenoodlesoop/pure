@@ -1,4 +1,4 @@
-import 'package:pure/src/common/types.dart';
+import 'package:pure/src/common/function_types.dart';
 import 'package:pure/src/recursion_trampoline/tram.dart';
 
 extension Bounce0X<T> on F0<Tram<T>> {

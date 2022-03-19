@@ -1,103 +1,79 @@
 library nullable;
 
-import 'package:pure/src/common/types.dart';
+import 'package:pure/src/common/function_types.dart';
 
 extension Nullable1X<A, T> on F1<A, T> {
-  T? nullable(A? a) {
-    if (a != null) {
-      return this(a);
-    }
-  }
+  T? nullable(A? a) => a != null ? this(a) : null;
 }
 
 extension Nullable2X<A, B, T> on F2<A, B, T> {
-  T? nullable(A? a, B? b) {
-    if (a != null && b != null) {
-      return this(a, b);
-    }
-  }
+  T? nullable(A? a, B? b) => a != null && b != null ? this(a, b) : null;
 }
 
 extension Nullable3X<A, B, C, T> on F3<A, B, C, T> {
-  T? nullable(A? a, B? b, C? c) {
-    if (a != null && b != null && c != null) {
-      return this(a, b, c);
-    }
-  }
+  T? nullable(A? a, B? b, C? c) =>
+      a != null && b != null && c != null ? this(a, b, c) : null;
 }
 
 extension Nullable4X<A, B, C, D, T> on F4<A, B, C, D, T> {
-  T? nullable(A? a, B? b, C? c, D? d) {
-    if (a != null && b != null && c != null && d != null) {
-      return this(a, b, c, d);
-    }
-  }
+  T? nullable(A? a, B? b, C? c, D? d) =>
+      a != null && b != null && c != null && d != null
+          ? this(a, b, c, d)
+          : null;
 }
 
 extension Nullable5X<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
-  T? nullable(A? a, B? b, C? c, D? d, E? e) {
-    if (a != null && b != null && c != null && d != null && e != null) {
-      return this(a, b, c, d, e);
-    }
-  }
+  T? nullable(A? a, B? b, C? c, D? d, E? e) =>
+      a != null && b != null && c != null && d != null && e != null
+          ? this(a, b, c, d, e)
+          : null;
 }
 
 extension Nullable6X<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
-  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f) {
-    if (a != null &&
-        b != null &&
-        c != null &&
-        d != null &&
-        e != null &&
-        f != null) {
-      return this(a, b, c, d, e, f);
-    }
-  }
+  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f) =>
+      a != null && b != null && c != null && d != null && e != null && f != null
+          ? this(a, b, c, d, e, f)
+          : null;
 }
 
 extension Nullable7X<A, B, C, D, E, F, G, T> on F7<A, B, C, D, E, F, G, T> {
-  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f, G? g) {
-    if (a != null &&
-        b != null &&
-        c != null &&
-        d != null &&
-        e != null &&
-        f != null &&
-        g != null) {
-      return this(a, b, c, d, e, f, g);
-    }
-  }
+  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f, G? g) => a != null &&
+          b != null &&
+          c != null &&
+          d != null &&
+          e != null &&
+          f != null &&
+          g != null
+      ? this(a, b, c, d, e, f, g)
+      : null;
 }
 
 extension Nullable8X<A, B, C, D, E, F, G, H, T>
     on F8<A, B, C, D, E, F, G, H, T> {
-  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f, G? g, H? h) {
-    if (a != null &&
-        b != null &&
-        c != null &&
-        d != null &&
-        e != null &&
-        f != null &&
-        g != null &&
-        h != null) {
-      return this(a, b, c, d, e, f, g, h);
-    }
-  }
+  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f, G? g, H? h) => a != null &&
+          b != null &&
+          c != null &&
+          d != null &&
+          e != null &&
+          f != null &&
+          g != null &&
+          h != null
+      ? this(a, b, c, d, e, f, g, h)
+      : null;
 }
 
 extension Nullable9X<A, B, C, D, E, F, G, H, I, T>
     on F9<A, B, C, D, E, F, G, H, I, T> {
-  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f, G? g, H? h, I? i) {
-    if (a != null &&
-        b != null &&
-        c != null &&
-        d != null &&
-        e != null &&
-        f != null &&
-        g != null &&
-        h != null &&
-        i != null) {
-      return this(a, b, c, d, e, f, g, h, i);
-    }
-  }
+  T? nullable(A? a, B? b, C? c, D? d, E? e, F? f, G? g, H? h, I? i) =>
+      a != null &&
+              b != null &&
+              c != null &&
+              d != null &&
+              e != null &&
+              f != null &&
+              g != null &&
+              h != null &&
+              i != null
+          ? this(a, b, c, d, e, f, g, h, i)
+          : null;
 }

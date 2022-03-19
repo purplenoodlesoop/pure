@@ -1,4 +1,4 @@
-import 'package:pure/src/common/types.dart';
+import 'package:pure/src/common/function_types.dart';
 import 'package:pure/src/memoization/helpers.dart';
 
 extension Memoize0X<T> on F0<T> {

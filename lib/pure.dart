@@ -1,5 +1,10 @@
 library pure;
 
+// --- Common --- //
+
+export 'src/common/curried_function_types.dart';
+export 'src/common/function_types.dart';
+
 // -- Composition -- //
 
 export 'src/composition/dot.dart';

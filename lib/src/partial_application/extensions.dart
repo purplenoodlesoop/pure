@@ -1,6 +1,6 @@
 library partial_application;
 
-import 'package:pure/src/common/types.dart';
+import 'package:pure/src/common/function_types.dart';
 
 extension Apply2X<A, B, T> on F2<A, B, T> {
   F1<B, T> apply(A a) => (b) => this(a, b);

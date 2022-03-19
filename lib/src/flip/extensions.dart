@@ -1,6 +1,6 @@
 library flip;
 
-import 'package:pure/src/common/types.dart';
+import 'package:pure/src/common/function_types.dart';
 
 extension Flip2X<A, B, T> on F2<A, B, T> {
   T flip(B b, A a) => this(a, b);
