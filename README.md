@@ -59,7 +59,7 @@ Provides hash-based memoization functionality.
 
 Allows to perform optimization and perform actual computations only when inputs given to the function are given for the first time. It is highly discouraged to use memoization on impure functions, mainly because it does not make very much sense.
 
-Bellow, memoization is used on an impure function only for demonstrational purposes.
+Below, memoization is used on an impure function only for demonstrational purposes.
 
 ```dart
 int Function(int base) newCounter() {
