@@ -1,3 +1,5 @@
+import 'package:pure/pure.dart';
+
 /// Returns the value that was passed as an argument.
 A id<A>(A a) => a;
 
@@ -25,3 +27,9 @@ A negateNum<A extends num>(A a) => -a as A;
 /// Inverts of the passed argument.
 // ignore: avoid_positional_boolean_parameters
 bool negate(bool a) => !a;
+
+/// Literally does nothing.
+void nothing() {}
+
+/// Literally does nothing, but asynchronously.
+Future<void> asyncNothing() async {}
