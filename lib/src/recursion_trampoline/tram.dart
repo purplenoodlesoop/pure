@@ -1,9 +1,27 @@
+/// Class that exposes recursion trampoline functionality, allowing to emulate
+/// a tail call optimization.
+///
+/// Represents one of the two states of a recursive computations –
+/// following recursive call or a returned value.
+///
+/// ```dart
+/// Tram<int> recursiveSum(int number, int sum) => number == 0
+///      ? Tram.done(sum)
+///      : Tram.call(() => tramSum(number - 1, sum + number));
+/// ```
 abstract class Tram<T> {
   const Tram._();
 
-  const factory Tram.done(T value) = _Value;
+  /// Represents a recursive tail call.
   const factory Tram.call(Tram<T> Function() instruction) = _Instruction;
 
+  /// Represents a returning value.
+  const factory Tram.done(T value) = _Value;
+
+  /// {@template tram.bounce}
+  /// Runs the function, "bouncing" on the recursion trampoline, returning
+  /// the result of the wrapped computations.
+  /// {@endtemplate}
   T bounce() {
     var result = this;
     while (result is _Instruction<T>) {
