@@ -1,7 +1,7 @@
 import 'package:example/example.dart';
 import 'package:pure/pure.dart';
 
-void main(List<String> arguments) {
+Future<void> main(List<String> arguments) async {
   void printResult(Object? result) => print('Result: $result');
   void printSection(Object? name) {
     const line = '----------';
@@ -14,9 +14,21 @@ void main(List<String> arguments) {
   printSection('Partial application');
   partialApplication().pipe(printResult);
 
+  printSection('Curry and uncurry');
+  curryUncurry().pipe(printResult);
+
   printSection('Memoization');
   memoization().forEach(printResult);
 
   printSection('Composition');
   composition().pipe(printResult);
+
+  printSection('Constant');
+  constant().pipe(printResult);
+
+  printSection('Nullable');
+  await nullable().then(printResult);
+
+  printSection('Flip');
+  flip().pipe(printResult);
 }

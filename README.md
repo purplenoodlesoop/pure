@@ -28,6 +28,56 @@ String intToStringPipe1(int x) => x.pipe(intToDouble).pipe(doubleToString);
 String intToStringPipe2(int x) => intToDouble(x).pipe(doubleToString); 
 ```
 
+### Constant
+
+Allows to create a function from a single value that discards its only argument and returns the value.
+
+For example, can be used to map a list of numbers to a single number.
+
+```dart
+const numbers = [1, 2, 3];
+final zeros = numbers.map(0.constant); /// Equivalent to `numbers.map((number) => 0);`
+```
+
+### Curry and Uncurry
+
+Allows to curry an uncurried function and uncurry a curried function.
+
+Currying is a process of transforming a function that takes multiple arguments into a chain of functions that take a single argument and returns another function, as many times as there were arguments in the original function.
+
+```dart
+String createPerson(String country, int age, String name) => "$country, $name, $age";
+
+final createTwin = createPerson.curry("Canada")(12);
+
+final tim = createTwin("Tim");
+final jim = createTwin("Jim");
+```
+
+
+### Flipping
+
+Allows to flip the arguments, reversing their order. 
+
+```dart
+String createPerson(String firstName, String lastName) => "$firstName, $lastName";
+final createFormalPerson = createPerson.flip;
+
+print(createFormalPerson('John', 'Doe')); /// Prints "Doe, John".
+```
+
+### Nullable invocation
+
+Allows to call a function that normally takes non-nullable arguments with nullable ones and runs it only when all arguments are not null indeed.
+
+```dart
+int sum(int first, int second) => first + second;
+final sumNullable = sum.nullable;
+
+print(sumNullable(2, 2)); /// Prints "4"
+print(sumNullable(2, null)); /// Prints "null"
+```
+
 ### Recursion Trampolines
 
 Provides stack-safe recursion functionality. 
@@ -64,15 +114,16 @@ Below, memoization is used on an impure function only for demonstrational purpos
 ```dart
 int Function(int base) newCounter() {
   var counter = 0;
+
   return (base) => base + counter++;
 }
 
-final counter = newCounter().memoized;
+final counter = newCounter().memoize();
 
 counter(0); // Returns 0, counter becomes 1
 counter(10); // Returns 11, counter becomes 2
 counter(0); // Returns 0, counter stays 2
-counter(11); // Returns 13, count becomes 3
+counter(11); // Returns 13, counter becomes 3
 ```
 
 ### Partial Application
@@ -85,7 +136,6 @@ Existing ways do so through creating a function buffer or through currying, appl
 int sumThree(int a, int b, int c) => a + b + c;
 
 int buffer(int b, int c) => sumThree(1, b, c);
-final currying = sumThree.curry()(1).uncurry(); // Not included in this package
 final partial = sumThree.apply(1);
 ```
 

@@ -1,88 +1,114 @@
-import 'package:pure/src/common/types.dart';
+import 'package:pure/src/common/function_types.dart';
 import 'package:pure/src/memoization/helpers.dart';
 
-extension Memoized0<T> on F0<T> {
-  F0<T> get memoized {
+/// {@template extensions.memoization}
+/// Returns a memoized version of the function.
+///
+/// Caches the result of the function based on its arguments and actually runs
+/// the computation only once for a given combination of arguments.
+///
+/// Because of that, the source function must be **pure**.
+/// {@endtemplate}
+extension Memoize0X<T> on F0<T> {
+  /// {@macro extensions.memoization}
+  F0<T> memoize() {
     T? result;
     return () => result ??= this();
   }
 }
 
-extension Memoized1<A, T> on F1<A, T> {
-  F1<A, T> get memoized {
+/// {@macro extensions.memoization}
+extension Memoize1X<A, T> on F1<A, T> {
+  /// {@macro extensions.memoization}
+  F1<A, T> memoize() {
     final results = <int, T>{};
 
-    return (A a) => results.putIfAbsent(a.hashCode, () => this(a));
+    return (a) => results.putIfAbsent(a.hashCode, () => this(a));
   }
 }
 
-extension Memoized2<A, B, T> on F2<A, B, T> {
-  F2<A, B, T> get memoized {
+/// {@macro extensions.memoization}
+extension Memoize2X<A, B, T> on F2<A, B, T> {
+  /// {@macro extensions.memoization}
+  F2<A, B, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b) => tryGetMemoized(results, [a, b]);
+    return (a, b) => getMemoizedOrCompute(results, [a, b]);
   }
 }
 
-extension Memoized3<A, B, C, T> on F3<A, B, C, T> {
-  F3<A, B, C, T> get memoized {
+/// {@macro extensions.memoization}
+extension Memoize3X<A, B, C, T> on F3<A, B, C, T> {
+  /// {@macro extensions.memoization}
+  F3<A, B, C, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b, C c) => tryGetMemoized(results, [a, b, c]);
+    return (a, b, c) => getMemoizedOrCompute(results, [a, b, c]);
   }
 }
 
-extension Memoized4<A, B, C, D, T> on F4<A, B, C, D, T> {
-  F4<A, B, C, D, T> get memoized {
+/// {@macro extensions.memoization}
+extension Memoize4X<A, B, C, D, T> on F4<A, B, C, D, T> {
+  /// {@macro extensions.memoization}
+  F4<A, B, C, D, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b, C c, D d) => tryGetMemoized(results, [a, b, c, d]);
+    return (a, b, c, d) => getMemoizedOrCompute(results, [a, b, c, d]);
   }
 }
 
-extension Memoized5<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
-  F5<A, B, C, D, E, T> get memoized {
+/// {@macro extensions.memoization}
+extension Memoize5X<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
+  /// {@macro extensions.memoization}
+  F5<A, B, C, D, E, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b, C c, D d, E e) =>
-        tryGetMemoized(results, [a, b, c, d, e]);
+    return (a, b, c, d, e) => getMemoizedOrCompute(results, [a, b, c, d, e]);
   }
 }
 
-extension Memoized6<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
-  F6<A, B, C, D, E, F, T> get memoized {
+/// {@macro extensions.memoization}
+extension Memoize6X<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
+  /// {@macro extensions.memoization}
+  F6<A, B, C, D, E, F, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b, C c, D d, E e, F f) =>
-        tryGetMemoized(results, [a, b, c, d, e, f]);
+    return (a, b, c, d, e, f) =>
+        getMemoizedOrCompute(results, [a, b, c, d, e, f]);
   }
 }
 
-extension Memoized7<A, B, C, D, E, F, G, T> on F7<A, B, C, D, E, F, G, T> {
-  F7<A, B, C, D, E, F, G, T> get memoized {
+/// {@macro extensions.memoization}
+extension Memoize7X<A, B, C, D, E, F, G, T> on F7<A, B, C, D, E, F, G, T> {
+  /// {@macro extensions.memoization}
+  F7<A, B, C, D, E, F, G, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b, C c, D d, E e, F f, G g) =>
-        tryGetMemoized(results, [a, b, c, d, e, f, g]);
+    return (a, b, c, d, e, f, g) =>
+        getMemoizedOrCompute(results, [a, b, c, d, e, f, g]);
   }
 }
 
-extension Memoized8<A, B, C, D, E, F, G, H, T>
+/// {@macro extensions.memoization}
+extension Memoize8X<A, B, C, D, E, F, G, H, T>
     on F8<A, B, C, D, E, F, G, H, T> {
-  F8<A, B, C, D, E, F, G, H, T> get memoized {
+  /// {@macro extensions.memoization}
+  F8<A, B, C, D, E, F, G, H, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b, C c, D d, E e, F f, G g, H h) =>
-        tryGetMemoized(results, [a, b, c, d, e, f, g, h]);
+    return (a, b, c, d, e, f, g, h) =>
+        getMemoizedOrCompute(results, [a, b, c, d, e, f, g, h]);
   }
 }
 
-extension Memoized9<A, B, C, D, E, F, G, H, I, T>
+/// {@macro extensions.memoization}
+extension Memoize9X<A, B, C, D, E, F, G, H, I, T>
     on F9<A, B, C, D, E, F, G, H, I, T> {
-  F9<A, B, C, D, E, F, G, H, I, T> get memoized {
+  /// {@macro extensions.memoization}
+  F9<A, B, C, D, E, F, G, H, I, T> memoize() {
     final results = <int, T>{};
 
-    return (A a, B b, C c, D d, E e, F f, G g, H h, I i) =>
-        tryGetMemoized(results, [a, b, c, d, e, f, g, h, i]);
+    return (a, b, c, d, e, f, g, h, i) =>
+        getMemoizedOrCompute(results, [a, b, c, d, e, f, g, h, i]);
   }
 }
