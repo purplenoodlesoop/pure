@@ -1,5 +1,3 @@
-import 'package:pure/pure.dart';
-
 /// Returns the value that was passed as an argument.
 A id<A>(A a) => a;
 
