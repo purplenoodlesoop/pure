@@ -14,6 +14,9 @@ Future<void> main(List<String> arguments) async {
   printSection('Partial application');
   partialApplication().pipe(printResult);
 
+  printSection('Curry and uncurry');
+  curryUncurry().pipe(printResult);
+
   printSection('Memoization');
   memoization().forEach(printResult);
 

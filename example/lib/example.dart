@@ -20,6 +20,12 @@ int constant() {
   return runWithCurrentDate(10.constant);
 }
 
+int curryUncurry() {
+  int sum4(int a, int b, int c, int d) => a + b + c + d;
+
+  return sum4.curry(1)(2).uncurry(3, 4);
+}
+
 int trampolineRecursion() {
   Tram<int> tramSum(int number, int sum) => number == 0
       ? Tram.done(sum)
