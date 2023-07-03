@@ -5,8 +5,9 @@ packages:
     dependency: "direct dev"
     description:
       name: purple_lints
-      url: "https://pub.dartlang.org"
+      sha256: "11e4615d791e4a33c55a33d0b1cdb8dcf87225d97616c54435041353ebaa9535"
+      url: "https://pub.dev"
     source: hosted
-    version: "0.2.0"
+    version: "0.4.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=3.0.0 <4.0.0"
