@@ -10,3 +10,5 @@ environment:
 
 dev_dependencies:
   purple_lints: ^0.4.0
+dependencies:
+  meta: ^1.9.1
