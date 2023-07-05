@@ -9,7 +9,7 @@
 ///      ? Tram.done(sum)
 ///      : Tram.call(() => tramSum(number - 1, sum + number));
 /// ```
-abstract class Tram<T> {
+sealed class Tram<T> {
   const Tram._();
 
   /// Represents a recursive tail call.
@@ -24,10 +24,15 @@ abstract class Tram<T> {
   /// {@endtemplate}
   T bounce() {
     var result = this;
-    while (result is _Instruction<T>) {
-      result = result.call();
+
+    while (true) {
+      switch (result) {
+        case _Value(:final value):
+          return value;
+        case _Instruction(:final call):
+          result = call();
+      }
     }
-    return (result as _Value<T>).value;
   }
 }
 
