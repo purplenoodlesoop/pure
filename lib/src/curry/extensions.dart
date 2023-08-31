@@ -13,6 +13,12 @@ import 'package:pure/src/common/function_types.dart';
 ///
 /// Handy for partial application.
 /// {@endtemplate}
+extension Curry1X<A, T> on F1<A, T> {
+  /// {@macro extensions.curry}
+  F0<T> curry(A a) => () => this(a);
+}
+
+/// {@macro extensions.curry}
 extension Curry2X<A, B, T> on F2<A, B, T> {
   /// {@macro extensions.curry}
   T Function(B b) curry(A a) => (b) => this(a, b);
