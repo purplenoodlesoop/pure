@@ -8,6 +8,12 @@ import 'package:pure/src/common/function_types.dart';
 /// Essentially acts as a shortcut of currying a function, applying the first
 /// argument and immediately uncurrying it back.
 /// {@endtemplate}
+extension Apply1X<A, T> on F1<A, T> {
+  /// {@macro extensions.partial_application}
+  F0<T> apply(A a) => () => this(a);
+}
+
+/// {@macro extensions.partial_application}
 extension Apply2X<A, B, T> on F2<A, B, T> {
   /// {@macro extensions.partial_application}
   F1<B, T> apply(A a) => (b) => this(a, b);
