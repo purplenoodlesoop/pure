@@ -1,6 +1,6 @@
 name: pure
 description: Functional programming essentials for Dart. Tail call optimization, partial application, memoization, and more.
-version: 0.2.0
+version: 0.3.0
 maintainer: Yakov Karpov (@purplenoodlesoop)
 
 homepage: https://github.com/purplenoodlesoop/pure

@@ -17,7 +17,7 @@ String trimLeft(String source) => source.trimLeft();
 String trimRight(String source) => source.trimRight();
 
 /// Appends [other] to [source].
-String append(String source, String other) => source + other;
+String append(String other, String source) => source + other;
 
 /// Prepends [other] to [source].
-String prepend(String source, String other) => other + source;
+String prepend(String other, String source) => other + source;
