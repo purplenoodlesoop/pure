@@ -1,52 +1,34 @@
 library pure;
 
-// --- Common --- //
-
 export 'src/common/curried_function_types.dart';
 export 'src/common/function_types.dart';
-
-// -- Composition -- //
 
 export 'src/composition/dot.dart';
 export 'src/composition/pipe.dart';
 
-// --- Constant --- //
-
 export 'src/constant/extensions.dart';
-
-// --- Curry --- //
 
 export 'src/curry/extensions.dart';
 
-// --- Flip --- //
-
 export 'src/flip/extensions.dart';
 
-// -- Functions -- //
-
-export 'src/functions/functions.dart';
-
-// -- Memoization -- //
+export 'src/functions/bool.dart';
+export 'src/functions/equality.dart';
+export 'src/functions/function.dart';
+export 'src/functions/num.dart';
+export 'src/functions/string.dart';
 
 export 'src/memoization/extensions.dart';
 
-// -- Nullable -- //
-
 export 'src/nullable/extensions.dart';
 
-// -- Partial Application -- //
-
 export 'src/partial_application/extensions.dart';
-
-// -- Recursion Trampoline -- //
 
 export 'src/recursion_trampoline/extensions.dart';
 export 'src/recursion_trampoline/tram.dart';
 
-// -- Uncurrying -- //
+export 'src/tagged_record/tagged_record.dart';
+
+export 'src/thunk/extension.dart';
 
 export 'src/uncurry/extensions.dart';
-
-// Convenience mixin for auto-imports
-
-mixin ImportPure {}
