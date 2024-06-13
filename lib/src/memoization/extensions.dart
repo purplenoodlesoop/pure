@@ -12,8 +12,9 @@ import 'package:pure/src/memoization/helpers.dart';
 extension Memoize0X<T> on F0<T> {
   /// {@macro extensions.memoization}
   F0<T> memoize() {
-    T? result;
-    return () => result ??= this();
+    final cached = createCached<T>();
+
+    return () => cached([]);
   }
 }
 
@@ -21,9 +22,9 @@ extension Memoize0X<T> on F0<T> {
 extension Memoize1X<A, T> on F1<A, T> {
   /// {@macro extensions.memoization}
   F1<A, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a) => results.putIfAbsent(a.hashCode, () => this(a));
+    return (a) => cached([a]);
   }
 }
 
@@ -31,9 +32,9 @@ extension Memoize1X<A, T> on F1<A, T> {
 extension Memoize2X<A, B, T> on F2<A, B, T> {
   /// {@macro extensions.memoization}
   F2<A, B, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b) => getMemoizedOrCompute(results, [a, b]);
+    return (a, b) => cached([a, b]);
   }
 }
 
@@ -41,9 +42,9 @@ extension Memoize2X<A, B, T> on F2<A, B, T> {
 extension Memoize3X<A, B, C, T> on F3<A, B, C, T> {
   /// {@macro extensions.memoization}
   F3<A, B, C, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b, c) => getMemoizedOrCompute(results, [a, b, c]);
+    return (a, b, c) => cached([a, b, c]);
   }
 }
 
@@ -51,9 +52,9 @@ extension Memoize3X<A, B, C, T> on F3<A, B, C, T> {
 extension Memoize4X<A, B, C, D, T> on F4<A, B, C, D, T> {
   /// {@macro extensions.memoization}
   F4<A, B, C, D, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b, c, d) => getMemoizedOrCompute(results, [a, b, c, d]);
+    return (a, b, c, d) => cached([a, b, c, d]);
   }
 }
 
@@ -61,9 +62,9 @@ extension Memoize4X<A, B, C, D, T> on F4<A, B, C, D, T> {
 extension Memoize5X<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
   /// {@macro extensions.memoization}
   F5<A, B, C, D, E, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b, c, d, e) => getMemoizedOrCompute(results, [a, b, c, d, e]);
+    return (a, b, c, d, e) => cached([a, b, c, d, e]);
   }
 }
 
@@ -71,10 +72,9 @@ extension Memoize5X<A, B, C, D, E, T> on F5<A, B, C, D, E, T> {
 extension Memoize6X<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
   /// {@macro extensions.memoization}
   F6<A, B, C, D, E, F, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b, c, d, e, f) =>
-        getMemoizedOrCompute(results, [a, b, c, d, e, f]);
+    return (a, b, c, d, e, f) => cached([a, b, c, d, e, f]);
   }
 }
 
@@ -82,10 +82,9 @@ extension Memoize6X<A, B, C, D, E, F, T> on F6<A, B, C, D, E, F, T> {
 extension Memoize7X<A, B, C, D, E, F, G, T> on F7<A, B, C, D, E, F, G, T> {
   /// {@macro extensions.memoization}
   F7<A, B, C, D, E, F, G, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b, c, d, e, f, g) =>
-        getMemoizedOrCompute(results, [a, b, c, d, e, f, g]);
+    return (a, b, c, d, e, f, g) => cached([a, b, c, d, e, f, g]);
   }
 }
 
@@ -94,10 +93,9 @@ extension Memoize8X<A, B, C, D, E, F, G, H, T>
     on F8<A, B, C, D, E, F, G, H, T> {
   /// {@macro extensions.memoization}
   F8<A, B, C, D, E, F, G, H, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b, c, d, e, f, g, h) =>
-        getMemoizedOrCompute(results, [a, b, c, d, e, f, g, h]);
+    return (a, b, c, d, e, f, g, h) => cached([a, b, c, d, e, f, g, h]);
   }
 }
 
@@ -106,9 +104,8 @@ extension Memoize9X<A, B, C, D, E, F, G, H, I, T>
     on F9<A, B, C, D, E, F, G, H, I, T> {
   /// {@macro extensions.memoization}
   F9<A, B, C, D, E, F, G, H, I, T> memoize() {
-    final results = <int, T>{};
+    final cached = createCached<T>();
 
-    return (a, b, c, d, e, f, g, h, i) =>
-        getMemoizedOrCompute(results, [a, b, c, d, e, f, g, h, i]);
+    return (a, b, c, d, e, f, g, h, i) => cached([a, b, c, d, e, f, g, h, i]);
   }
 }
