@@ -27,8 +27,8 @@ export 'src/partial_application/extensions.dart';
 export 'src/recursion_trampoline/extensions.dart';
 export 'src/recursion_trampoline/tram.dart';
 
+export 'src/tagged_record/tagged_record.dart';
+
+export 'src/thunk/extension.dart';
+
 export 'src/uncurry/extensions.dart';
-
-// Convenience mixin for auto-imports
-
-mixin ImportPure {}
