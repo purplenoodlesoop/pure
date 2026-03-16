@@ -1,4 +1,4 @@
-import 'package:meta/meta.dart';
+import "package:meta/meta.dart";
 
 @immutable
 abstract base class TaggedRecord<R extends Record> {
@@ -19,5 +19,5 @@ abstract base class TaggedRecord<R extends Record> {
   int get hashCode => value.hashCode;
 
   @override
-  String toString() => '$name($value)';
+  String toString() => "$name($value)";
 }

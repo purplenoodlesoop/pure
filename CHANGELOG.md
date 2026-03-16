@@ -1,3 +1,13 @@
+## [1.0.0] - 16.03.2025
+
+### Added
+- Comprehensive test suite covering the entire public API.
+- `noOp` function — returns an empty `Stream<T>`.
+- `memoizeWeak` extension — weak-reference-backed memoization for single-argument functions over object keys, allowing cache entries to be garbage collected when the key is no longer reachable.
+
+### Changed
+- Migrated linter from `purple_lints` to `ai_dart_linter`.
+
 ## [0.3.0] - 13.06.2024
 
 ### Added

@@ -1,6 +1,5 @@
-library nullable;
 
-import 'package:pure/src/common/function_types.dart';
+import "package:pure/src/common/function_types.dart";
 
 /// {@template extensions.nullable}
 /// Takes nullable versions of arguments and runs the computation if all of them

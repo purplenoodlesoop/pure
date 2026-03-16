@@ -1,6 +1,5 @@
-library partial_application;
 
-import 'package:pure/src/common/function_types.dart';
+import "package:pure/src/common/function_types.dart";
 
 /// {@template extensions.partial_application}
 /// Partially applies the first argument to the function without currying it.

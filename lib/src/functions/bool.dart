@@ -1,3 +1,5 @@
+// Boolean logic functions intentionally take positional bool parameters,
+// matching standard mathematical notation (e.g. and(a, b), or(a, b)).
 // ignore_for_file: avoid_positional_boolean_parameters
 
 /// Always returns `true`.

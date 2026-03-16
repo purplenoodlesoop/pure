@@ -1,6 +1,5 @@
-library uncurry;
 
-import 'package:pure/src/common/curried_function_types.dart';
+import "package:pure/src/common/curried_function_types.dart";
 
 /// {@template extensions.uncurry}
 /// Uncurries the function, returning a new function that takes multiple
