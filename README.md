@@ -1,6 +1,8 @@
 # Pure
 
-Pure is a Dart package that brings functional programming essentials through extension methods. It offers function composition/pipes, function memoization, partial application, and recursion trampolines. 
+[![Coverage](https://img.shields.io/badge/coverage-95%25-brightgreen)](https://github.com/purplenoodlesoop/pure)
+
+Pure is a Dart package that brings functional programming essentials through extension methods. It offers function composition/pipes, function memoization, partial application, and recursion trampolines.
 
 ## Extensions
 
