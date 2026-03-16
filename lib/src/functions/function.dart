@@ -39,3 +39,6 @@ Future<void> asyncNothing() async {}
 
 /// Returns the passed argument, coerced to the given type.
 T coerce<T>(Object? value) => value as T;
+
+/// Returns an empty stream of the given type.
+Stream<T> noOp<T>() => Stream.empty();

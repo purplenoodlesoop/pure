@@ -105,7 +105,7 @@ final regular = regularSum(n, 0); // Unhandled exception: Stack Overflow
 
 ### Memoization
 
-Provides hash-based memoization functionality. 
+Provides hash-based memoization functionality.
 
 Allows to perform optimization and perform actual computations only when inputs given to the function are given for the first time. It is highly discouraged to use memoization on impure functions, mainly because it does not make very much sense.
 
@@ -125,6 +125,23 @@ counter(10); // Returns 11, counter becomes 2
 counter(0); // Returns 0, counter stays 2
 counter(11); // Returns 13, counter becomes 3
 ```
+
+### Weak Memoization
+
+`memoizeWeak` is a variant of `memoize` for single-argument functions where the argument is an object. The cache is backed by an `Expando`, so entries are eligible for garbage collection once the argument object is no longer reachable — the cache cannot cause memory leaks by keeping objects alive.
+
+```dart
+String describe(Uri uri) => '${uri.host}:${uri.port}';
+
+final cached = describe.memoizeWeak();
+
+final uri = Uri.parse('https://example.com');
+cached(uri); // computed
+cached(uri); // returned from cache
+// once `uri` is GC'd, the cache entry is released
+```
+
+The argument type must be a non-primitive object. Numbers, strings, and booleans are not valid keys.
 
 ### Partial Application
 
@@ -154,6 +171,16 @@ print(meaning()); // Prints "42"
 ## Functions
 
 The package also includes a set of basic functions that are not specific to functional programming per se, but are useful in many cases. They provide a basic functionality for common operations, such as working with `bool`, `num`, creating comparators and manipulating strings.
+
+### noOp
+
+Returns an empty stream of the given type. Useful as a no-operation stream producer in reactive pipelines.
+
+```dart
+final stream = noOp<int>(); // Returns an empty Stream<int>
+```
+
+### Other function utilities
 
 ```dart
 final appendWorld = append.curry('World! ');

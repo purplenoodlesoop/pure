@@ -203,6 +203,72 @@ void main() {
       });
     });
 
+    group("MemoizeWeak1X", () {
+      test("caches results by object argument", () {
+        var callCount = 0;
+        final key = Object();
+
+        int compute(Object o) {
+          callCount++;
+          return o.hashCode;
+        }
+
+        final memoized = compute.memoizeWeak();
+
+        expect(memoized(key), key.hashCode);
+        expect(memoized(key), key.hashCode);
+        expect(callCount, 1);
+      });
+
+      test("different objects get different cache entries", () {
+        var callCount = 0;
+        final a = Object();
+        final b = Object();
+
+        int compute(Object o) => ++callCount;
+
+        final memoized = compute.memoizeWeak();
+
+        memoized(a);
+        memoized(b);
+        memoized(a);
+        memoized(b);
+
+        expect(callCount, 2);
+      });
+
+      test("cache is per memoized instance", () {
+        var callCount = 0;
+        final key = Object();
+
+        int compute(Object o) => ++callCount;
+
+        final memo1 = compute.memoizeWeak();
+        final memo2 = compute.memoizeWeak();
+
+        memo1(key);
+        memo2(key);
+
+        expect(callCount, 2);
+      });
+
+      test("caches null return value correctly", () {
+        var callCount = 0;
+        final key = Object();
+
+        String? compute(Object o) {
+          callCount++;
+          return null;
+        }
+
+        final memoized = compute.memoizeWeak();
+
+        expect(memoized(key), isNull);
+        expect(memoized(key), isNull);
+        expect(callCount, 1);
+      });
+    });
+
     group("memoization side effects", () {
       test("side effects are not re-executed for cached calls", () {
         final sideEffects = <int>[];

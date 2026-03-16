@@ -1,6 +1,12 @@
 import "package:pure/src/common/function_types.dart";
 import "package:pure/src/memoization/helpers.dart";
 
+class _WeakBox<T> {
+  final T value;
+
+  _WeakBox(this.value);
+}
+
 /// {@template extensions.memoization}
 /// Returns a memoized version of the function.
 ///
@@ -107,5 +113,35 @@ extension Memoize9X<A, B, C, D, E, F, G, H, I, T>
     final cached = createCached<T>();
 
     return (a, b, c, d, e, f, g, h, i) => cached([a, b, c, d, e, f, g, h, i]);
+  }
+}
+
+/// {@template extensions.memoization.weak}
+/// Returns a weakly memoized version of the function.
+///
+/// Like [Memoize1X.memoize], caches the result for each unique argument.
+/// Unlike it, the cache entry is eligible for garbage collection once the
+/// argument object is no longer reachable elsewhere — preventing the cache
+/// from acting as an unintended strong reference.
+///
+/// The argument type [A] must be a non-primitive [Object]. Passing a number,
+/// string, or boolean as a key will throw at runtime.
+///
+/// Because of that, the source function must be **pure**.
+/// {@endtemplate}
+extension MemoizeWeak1X<A extends Object, T> on F1<A, T> {
+  /// {@macro extensions.memoization.weak}
+  F1<A, T> memoizeWeak() {
+    final cache = Expando<_WeakBox<T>>();
+
+    return (a) {
+      final cached = cache[a];
+      if (cached != null) {
+        return cached.value;
+      }
+      final result = _WeakBox(this(a));
+      cache[a] = result;
+      return result.value;
+    };
   }
 }
