@@ -1,6 +1,5 @@
-library flip;
 
-import 'package:pure/src/common/function_types.dart';
+import "package:pure/src/common/function_types.dart";
 
 /// {@template extensions.flip}
 /// Returns a new function with flipped arguments, reversing their order.

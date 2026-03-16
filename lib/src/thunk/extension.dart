@@ -1,9 +1,9 @@
 /// {@template extensions.thunk}
 /// Applies arguments to the function and returns a lazy thunk.
 /// {@endtemplate}
-library thunk;
+library;
 
-import 'package:pure/src/common/function_types.dart';
+import "package:pure/src/common/function_types.dart";
 
 /// {@macro extensions.thunk}
 extension Thunk1X<A, T> on F1<A, T> {

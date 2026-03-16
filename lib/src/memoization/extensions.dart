@@ -1,5 +1,5 @@
-import 'package:pure/src/common/function_types.dart';
-import 'package:pure/src/memoization/helpers.dart';
+import "package:pure/src/common/function_types.dart";
+import "package:pure/src/memoization/helpers.dart";
 
 /// {@template extensions.memoization}
 /// Returns a memoized version of the function.

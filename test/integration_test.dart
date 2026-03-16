@@ -1,12 +1,12 @@
-import 'package:pure/pure.dart' hide greaterThan, isNotNull, isNull;
-import 'package:pure/src/functions/num.dart' as pure_num;
-import 'package:pure/src/functions/string.dart' as pure_string;
-import 'package:test/test.dart';
+import "package:pure/pure.dart" hide greaterThan, isNotNull, isNull;
+import "package:pure/src/functions/num.dart" as pure_num;
+import "package:pure/src/functions/string.dart" as pure_string;
+import "package:test/test.dart";
 
 /// Integration tests that chain multiple features together.
 void main() {
-  group('integration: composition chains', () {
-    test('pipe + apply + memoize', () {
+  group("integration: composition chains", () {
+    test("pipe + apply + memoize", () {
       var callCount = 0;
       int multiply(int a, int b) {
         callCount++;
@@ -23,27 +23,27 @@ void main() {
       expect(callCount, 1); // Second call is memoized
     });
 
-    test('dot + curry', () {
+    test("dot + curry", () {
       int add(int a, int b) => a + b;
-      String intToStr(int x) => 'value:$x';
+      String intToStr(int x) => "value:$x";
 
       final addThenStringify = intToStr.dot(add.curry(10));
 
-      expect(addThenStringify(5), 'value:15');
+      expect(addThenStringify(5), "value:15");
     });
 
-    test('pipe + dot + compose', () {
+    test("pipe + dot + compose", () {
       int add1(int x) => x + 1;
       int double_(int x) => x * 2;
-      String toStr(int x) => '$x';
+      String toStr(int x) => "$x";
 
       final transform = toStr.dot(double_).dot(add1);
 
       final result = 4.pipe(transform);
-      expect(result, '10'); // (4+1)*2 = 10
+      expect(result, "10"); // (4+1)*2 = 10
     });
 
-    test('nullable + pipe', () {
+    test("nullable + pipe", () {
       int double_(int x) => x * 2;
 
       int? getValue() => 5;
@@ -55,15 +55,15 @@ void main() {
       expect(nullResult, isNull);
     });
 
-    test('flip reverses argument order', () {
-      String format(String prefix, int value) => '$prefix: $value';
+    test("flip reverses argument order", () {
+      String format(String prefix, int value) => "$prefix: $value";
 
       // flip(B b, A a) where A=String, B=int → flip(intVal, strVal)
-      final result = format.flip(42, 'hello');
-      expect(result, 'hello: 42');
+      final result = format.flip(42, "hello");
+      expect(result, "hello: 42");
     });
 
-    test('thunk + memoize', () {
+    test("thunk + memoize", () {
       var callCount = 0;
       int compute(int x, int y) {
         callCount++;
@@ -78,7 +78,7 @@ void main() {
       expect(callCount, 1); // memoized result
     });
 
-    test('trampoline + pipe', () {
+    test("trampoline + pipe", () {
       Tram<int> countDown(int n) =>
           n == 0 ? const Tram.done(0) : Tram.call(() => countDown(n - 1));
 
@@ -86,7 +86,7 @@ void main() {
       expect(result, 0);
     });
 
-    test('curry + uncurry roundtrip produces same result', () {
+    test("curry + uncurry roundtrip produces same result", () {
       int sum(int a, int b, int c) => a + b + c;
 
       // curry then manually uncurry
@@ -98,8 +98,8 @@ void main() {
     });
   });
 
-  group('integration: functional patterns', () {
-    test('point-free style: compose multiple transformations', () {
+  group("integration: functional patterns", () {
+    test("point-free style: compose multiple transformations", () {
       bool isEven(int x) => x.isEven;
       int double_(int x) => x * 2;
 
@@ -114,7 +114,7 @@ void main() {
       expect(result, [6, 10]);
     });
 
-    test('partial application of minus as subtractor', () {
+    test("partial application of minus as subtractor", () {
       // Instantiate the generic minus as int to get the F2 extension in scope
       const typedMinus = minus<int>;
       final subtractFrom10 = typedMinus.apply(10);
@@ -123,7 +123,7 @@ void main() {
       expect(subtractFrom10(15), -5);
     });
 
-    test('memoized fibonacci via trampoline', () {
+    test("memoized fibonacci via trampoline", () {
       // memoize caches the Tram<int> result; bounce() evaluates it
       Tram<int> fib(int n, int a, int b) {
         if (n == 0) {
@@ -139,7 +139,7 @@ void main() {
       expect(memoFib(20, 0, 1).bounce(), 6765);
     });
 
-    test('combining bool functions as predicates', () {
+    test("combining bool functions as predicates", () {
       final numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
       bool isEven(int n) => n.isEven;
       final gt5 = pure_num.greaterThan(5);
@@ -150,21 +150,21 @@ void main() {
       expect(result, [6, 8, 10]);
     });
 
-    test('string transformation pipeline', () {
-      final result = '  Hello, World!  '
+    test("string transformation pipeline", () {
+      final result = "  Hello, World!  "
           .pipe(pure_string.trim)
           .pipe(pure_string.toLowerCase);
-      expect(result, 'hello, world!');
+      expect(result, "hello, world!");
     });
 
-    test('fallbackTo + pipe', () {
-      final withDefault = fallbackTo('anonymous');
+    test("fallbackTo + pipe", () {
+      final withDefault = fallbackTo("anonymous");
       String? name;
       final result = name.pipe(withDefault);
-      expect(result, 'anonymous');
+      expect(result, "anonymous");
     });
 
-    test('id and constant used as function arguments', () {
+    test("id and constant used as function arguments", () {
       final numbers = [1, 2, 3];
       // Map each number to itself (using id)
       expect(numbers.map(id).toList(), numbers);
@@ -172,7 +172,7 @@ void main() {
       expect(numbers.map((n) => 0.constant(n)).toList(), [0, 0, 0]);
     });
 
-    test('callIf + id', () {
+    test("callIf + id", () {
       final result = callIf(true, () => id(42));
       expect(result, 42);
 
@@ -180,10 +180,10 @@ void main() {
       expect(nullResult, isNull);
     });
 
-    test('type check functions used as predicates', () {
-      final mixed = <Object>[1, 'hello', 2, 'world', 3];
+    test("type check functions used as predicates", () {
+      final mixed = <Object>[1, "hello", 2, "world", 3];
       final strings = mixed.where(itIs<String>).toList();
-      expect(strings, ['hello', 'world']);
+      expect(strings, ["hello", "world"]);
 
       final nonStrings = mixed.where(itIsNot<String>).toList();
       expect(nonStrings, [1, 2, 3]);

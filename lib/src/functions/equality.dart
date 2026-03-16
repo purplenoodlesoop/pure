@@ -1,4 +1,4 @@
-import 'package:pure/src/composition/dot.dart';
+import "package:pure/src/composition/dot.dart";
 
 /// Creates a comparator that compares two values by zooming into them.
 Comparator<A> compare<A, B extends Comparable<B>>(

@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "64.0.0"
+  ai_dart_linter:
+    dependency: "direct dev"
+    description:
+      name: ai_dart_linter
+      sha256: ea0079d24e8e1f0c0bce79e543c6ee1216777e9dc459d4956eaa5042b0b2563e
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   analyzer:
     dependency: transitive
     description:
@@ -209,14 +217,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
-  purple_lints:
-    dependency: "direct dev"
-    description:
-      name: purple_lints
-      sha256: "11e4615d791e4a33c55a33d0b1cdb8dcf87225d97616c54435041353ebaa9535"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.4.0"
   shelf:
     dependency: transitive
     description:

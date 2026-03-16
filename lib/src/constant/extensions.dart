@@ -1,4 +1,3 @@
-library constant;
 
 /// {@template extensions.constant}
 /// Takes a single argument, discards it and return the value that it was called

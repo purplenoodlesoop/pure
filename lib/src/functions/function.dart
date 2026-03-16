@@ -1,3 +1,5 @@
+// callIf intentionally takes a positional bool predicate to mirror the
+// natural call-site syntax: callIf(condition, callback).
 // ignore_for_file: avoid_positional_boolean_parameters
 
 /// Falls back to the given value if the nullable value is `null`.

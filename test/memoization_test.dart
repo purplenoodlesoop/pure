@@ -1,10 +1,10 @@
-import 'package:pure/pure.dart' hide isNotNull, isNull;
-import 'package:test/test.dart';
+import "package:pure/pure.dart" hide isNotNull, isNull;
+import "package:test/test.dart";
 
 void main() {
-  group('memoization', () {
-    group('Memoize0X', () {
-      test('memoizes zero-arg function', () {
+  group("memoization", () {
+    group("Memoize0X", () {
+      test("memoizes zero-arg function", () {
         var callCount = 0;
         int compute() {
           callCount++;
@@ -19,8 +19,8 @@ void main() {
       });
     });
 
-    group('Memoize1X', () {
-      test('caches results by argument', () {
+    group("Memoize1X", () {
+      test("caches results by argument", () {
         var callCount = 0;
         int expensive(int x) {
           callCount++;
@@ -36,7 +36,7 @@ void main() {
         expect(callCount, 2); // Two unique inputs
       });
 
-      test('different arguments get different cache entries', () {
+      test("different arguments get different cache entries", () {
         int identity(int x) => x;
         final memoized = identity.memoize();
 
@@ -45,7 +45,7 @@ void main() {
         expect(memoized(3), 3);
       });
 
-      test('works with string argument', () {
+      test("works with string argument", () {
         var callCount = 0;
         int strlen(String s) {
           callCount++;
@@ -54,28 +54,28 @@ void main() {
 
         final memoized = strlen.memoize();
 
-        expect(memoized('hello'), 5);
-        expect(memoized('hello'), 5);
+        expect(memoized("hello"), 5);
+        expect(memoized("hello"), 5);
         expect(callCount, 1);
       });
 
-      test('works with null argument', () {
+      test("works with null argument", () {
         var callCount = 0;
         String nullToStr(String? s) {
           callCount++;
-          return s ?? 'null';
+          return s ?? "null";
         }
 
         final memoized = nullToStr.memoize();
 
-        expect(memoized(null), 'null');
-        expect(memoized(null), 'null');
+        expect(memoized(null), "null");
+        expect(memoized(null), "null");
         expect(callCount, 1);
       });
     });
 
-    group('Memoize2X', () {
-      test('caches by combination of two arguments', () {
+    group("Memoize2X", () {
+      test("caches by combination of two arguments", () {
         var callCount = 0;
         int add(int a, int b) {
           callCount++;
@@ -91,7 +91,7 @@ void main() {
         expect(callCount, 2);
       });
 
-      test('(a,b) and (b,a) are treated as distinct cache entries', () {
+      test("(a,b) and (b,a) are treated as distinct cache entries", () {
         var callCount = 0;
         String concat(String a, String b) {
           callCount++;
@@ -100,14 +100,14 @@ void main() {
 
         final memoized = concat.memoize();
 
-        expect(memoized('foo', 'bar'), 'foobar');
-        expect(memoized('bar', 'foo'), 'barfoo');
+        expect(memoized("foo", "bar"), "foobar");
+        expect(memoized("bar", "foo"), "barfoo");
         expect(callCount, 2);
       });
     });
 
-    group('Memoize3X', () {
-      test('caches by 3-argument combination', () {
+    group("Memoize3X", () {
+      test("caches by 3-argument combination", () {
         var callCount = 0;
         int sum3(int a, int b, int c) {
           callCount++;
@@ -122,8 +122,8 @@ void main() {
       });
     });
 
-    group('Memoize4X through Memoize9X', () {
-      test('Memoize4X caches correctly', () {
+    group("Memoize4X through Memoize9X", () {
+      test("Memoize4X caches correctly", () {
         var callCount = 0;
         int sum4(int a, int b, int c, int d) {
           callCount++;
@@ -136,7 +136,7 @@ void main() {
         expect(callCount, 1);
       });
 
-      test('Memoize5X caches correctly', () {
+      test("Memoize5X caches correctly", () {
         var callCount = 0;
         int sum5(int a, int b, int c, int d, int e) {
           callCount++;
@@ -149,7 +149,7 @@ void main() {
         expect(callCount, 1);
       });
 
-      test('Memoize6X caches correctly', () {
+      test("Memoize6X caches correctly", () {
         var callCount = 0;
         int sum6(int a, int b, int c, int d, int e, int f) {
           callCount++;
@@ -162,7 +162,7 @@ void main() {
         expect(callCount, 1);
       });
 
-      test('Memoize7X caches correctly', () {
+      test("Memoize7X caches correctly", () {
         var callCount = 0;
         int sum7(int a, int b, int c, int d, int e, int f, int g) {
           callCount++;
@@ -175,7 +175,7 @@ void main() {
         expect(callCount, 1);
       });
 
-      test('Memoize8X caches correctly', () {
+      test("Memoize8X caches correctly", () {
         var callCount = 0;
         int sum8(int a, int b, int c, int d, int e, int f, int g, int h) {
           callCount++;
@@ -188,7 +188,7 @@ void main() {
         expect(callCount, 1);
       });
 
-      test('Memoize9X caches correctly', () {
+      test("Memoize9X caches correctly", () {
         var callCount = 0;
         int sum9(int a, int b, int c, int d, int e, int f, int g, int h,
             int i,) {
@@ -203,8 +203,8 @@ void main() {
       });
     });
 
-    group('memoization side effects', () {
-      test('side effects are not re-executed for cached calls', () {
+    group("memoization side effects", () {
+      test("side effects are not re-executed for cached calls", () {
         final sideEffects = <int>[];
         int withSideEffect(int x) {
           sideEffects.add(x);
@@ -220,7 +220,7 @@ void main() {
         expect(sideEffects, [5]); // Side effect ran only once
       });
 
-      test('cache is per memoized instance', () {
+      test("cache is per memoized instance", () {
         var callCount = 0;
         int increment(int x) {
           callCount++;

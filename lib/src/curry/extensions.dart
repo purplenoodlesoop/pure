@@ -1,7 +1,6 @@
-library currying;
 
-import 'package:pure/src/common/curried_function_types.dart';
-import 'package:pure/src/common/function_types.dart';
+import "package:pure/src/common/curried_function_types.dart";
+import "package:pure/src/common/function_types.dart";
 
 /// {@template extensions.curry}
 /// Curries the function.
